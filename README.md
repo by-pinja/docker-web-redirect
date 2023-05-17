@@ -12,7 +12,7 @@ This Docker container listens on port 80 and redirects all web traffic to the gi
 The target domain/URL is set by the `REDIRECT_TARGET` environment variable.  
 Possible redirect targets include domains (`mydomain.net`), paths (`mydomain.net/my_page`) or specific protocols (`https://mydomain.net/my_page`).  
 
-**Example:** `$ docker run --rm -d -e REDIRECT_TARGET=mydomain.net -p 80:80 ghcr.io/laurihaavisto/docker-web-redirect`
+**Example:** `$ docker run --rm -d -e REDIRECT_TARGET=mydomain.net -p 80:80 ghcr.io/by-pinja/docker-web-redirect`
 
 ### Paths are retained ###
 The URL path and GET parameters are retained. That means that a request to `http://myolddomain.net/index.php?page=2` will be redirected to `http://mydomain.net/index.php?page=2` when `REDIRECT_TARGET=mydomain.net` is set.
@@ -30,7 +30,7 @@ This image can be combined with the [jwilder nginx-proxy](https://hub.docker.com
 version: '3'
 services:
   redirect:
-    image: ghcr.io/laurihaavisto/docker-web-redirect
+    image: ghcr.io/by-pinja/docker-web-redirect
     restart: always
     environment:
       - VIRTUAL_HOST=myolddomain.net
